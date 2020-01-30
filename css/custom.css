@@ -7,9 +7,9 @@ html {
 body {
 	max-width: 100%;
 	height: 100vh;
-	background: #E8CBC0;
-	background: -webkit-linear-gradient(to left, #E8CBC0 , #636FA4);
-	background: linear-gradient(to left, #E8CBC0 , #636FA4);
+	background: #f5c3bc;
+	background: -webkit-linear-gradient(to left, #f5c3bc , #c9485b);
+	background: linear-gradient(to left, #f5c3bc , #c9485b);
 	padding: 25px;
 
 }
@@ -17,7 +17,7 @@ body {
 h2 {
 	font-size: 2rem;
 	line-height: 0;
-	color: #6C75A6;
+	color: #c9485b;
 	font-weight: 300;
 }
 
@@ -47,7 +47,7 @@ li {
 }
 
 li:hover {
-	background-color: #8888AC;
+	background-color: #c9485b;
 	cursor: pointer;
 	text-decoration: none;
 }
@@ -58,7 +58,7 @@ li:hover {
 }
 
 .link-delete:hover {
-	background-color: #8888AC;
+	background-color: #c9485b;
 	cursor: pointer;
 	text-decoration: none;
 }
@@ -70,7 +70,7 @@ li:hover {
 	line-height: 2.5rem;
 	font-size: 1.7rem;
 	width: 2.5rem; */
-	background-color: #8888AC;
+	background-color: #c9485b;
 	margin-right: 30px;
 	border: none;
 	color: #ffffff;
@@ -78,7 +78,7 @@ li:hover {
 }
 
 button:hover {
-	background-color: #70708C;
+	background-color: #c9485b;
 	cursor: pointer;
 }
 
@@ -99,7 +99,7 @@ input {
 }
 
 input:focus {
-	border-bottom: 1px solid #8888AC;
+	border-bottom: 1px solid #c9485b;
 	outline-width: 0;
 
 }
