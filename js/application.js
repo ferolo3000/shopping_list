@@ -1,41 +1,20 @@
-$(document).ready(function(){
-	var textInput = $('#input').val();
+$(document).ready(function() {
 
-	 $("#input").keyup(function() {
-       if ($(this).val()) {
-          $("#btn").css( "display", "inline-block" );
-       }
-       else {
-          $("#btn").hide();
-       }
-    });
-    $("#btn").click(function () {
-       $(this).hide();
-    });
+  $('button').click(function() {
+    var itemInput = $('#item').val();
+		var priceInput = $('#price').val();
+		var qtyInput = $('#qty').val();
+		var total = priceInput * qtyInput;
+    $('.add').append('<li class="item-name col-xs-3">' + itemInput + '</li>');
+		$('.add').append('<li class="item-name col-xs-3">' + "$" + priceInput + '</li>');
+		$('.add').append('<li class="item-name col-xs-3">' + qtyInput + '</li>');
+		$('.add').append('<li class="item-name col-xs-2">' + "$" + total + '<li id="delete" class="delete delete-item item-name col-xs-1"><a class="link-delete">X</a>' + '</li>');
 
-	$('#btn').click(function(){
-		var textInput = $('#input').val();
-		$('<li class="item">').text(textInput).prependTo('.list');
-		$('#input').val('');
-
-		$('.item').click(function() {
-		$(this).remove();
-		});
-
-	});
-
-	$('#input').keypress(function (e) {
-		var textInput = $('#input').val();
-  if (e.which == 13) {
-    $('<li class="item">').text(textInput).prependTo('.list');
-	$('#input').val('');
-
-	  $('.item').click(function() {
-		$(this).remove();
-		});
-
-    return false;
-  }
-
+    $(document).on('click', '.delete', deleteItem);
+  });
 });
-});
+
+//delete item from list
+function deleteItem() {
+  $(this).parent().remove();
+}

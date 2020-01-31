@@ -19,6 +19,7 @@ h2 {
 	line-height: 0;
 	color: #c9485b;
 	font-weight: 300;
+	margin-bottom: 30px;
 }
 
 .list {
@@ -40,13 +41,12 @@ h2 {
 	margin: 4% auto;
 }
 
-li {
+.delete-item {
 	background-color:  rgba(0,0,0,0.15);
 	list-style-type: none;
-	border-radius: 60%;
 }
 
-li:hover {
+.delete-item:hover {
 	background-color: #c9485b;
 	cursor: pointer;
 	text-decoration: none;
@@ -63,27 +63,8 @@ li:hover {
 	text-decoration: none;
 }
 
-.btn-list {
-	/* display: none;
-	font-weight: 300;
-	margin: 20px 0;
-	line-height: 2.5rem;
-	font-size: 1.7rem;
-	width: 2.5rem; */
-	background-color: #c9485b;
-	margin-right: 30px;
-	border: none;
-	color: #ffffff;
-	border-radius: 50%;
-}
-
-button:hover {
-	background-color: #c9485b;
-	cursor: pointer;
-}
-
-button:focus {
-	outline-width: 0;
+.item-name {
+	list-style-type: none;
 }
 
 input {
