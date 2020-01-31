@@ -63,7 +63,7 @@ h2 {
 	text-decoration: none;
 }
 
-.item-name {
+.item-name, .item-value, .item-qty, .item-cost {
 	list-style-type: none;
 }
 
