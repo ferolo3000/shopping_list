@@ -2,18 +2,32 @@
 $(document).ready(function() {
 
   $('#btn').click(function() {
+    var itemName = $('.item-name');
     var itemInput = $('#item').val();
     var priceInput = $('#price').val();
-    var qtyInput = $('#qty').val();
-    var totalItem = priceInput * qtyInput;
-    $('#list-container').append('<div class="add row item-list"><li class="item-name col-xs-3">' + itemInput + '</li>' +
-      '<li class="item-value col-xs-3">' + "$" + priceInput + '</li>' + '<li class="item-qty col-xs-3">' + qtyInput + '</li>' +
-      '<li  id="total" class="item-cost col-xs-2">' + "$" + totalItem + '<li id="delete" class="delete delete-item item-name col-xs-1"><a class="link-delete">X</a>' + '</li></div>');
-      cost();
+    var subTotal = 0;
+      $('#list-container').append('<div class="add row item-list"><li class="item-name col-xs-3">' + itemInput + '</li>' +
+        '<li id="value" class="item-value col-xs-3">' + "$" + priceInput + '</li>' +
+        '<li class="item-qty col-xs-3"><input type="number" class="quantity" min ="0" oninput="sum(); cost();"></li>' +
+        '<li  id="total" class="item-cost col-xs-2">' + "$" + subTotal + '<li id="delete" class="delete delete-item item-name col-xs-1"><a class="link-delete">X</a>' + '</li></div>');
+        sum();
+        cost();
 
   });
 
   $(document).on('click', '.delete', deleteItem);
+
+  $(document).on('keyup', '.quantity', function(){
+    sum();
+    cost();
+  });
+
+  $('input').keydown(function(e){
+    if (e.which == 13) {
+      sum();
+      cost();
+    }
+  });
 
 
 });
@@ -22,6 +36,7 @@ $(document).ready(function() {
 function deleteItem() {
   $(this).parents(".row").remove();
   cost();
+  sum();
 }
 
 function cost() {
@@ -35,4 +50,20 @@ function cost() {
     $('#total-price').text(total);
 
   });
+}
+
+function sum() {
+    var prices = $('.item-value');
+    var totalQty = $('.quantity');
+
+    for (i=0; i < totalQty.length; i++) {
+
+      var price = $(prices[i]).text().replace(/\$/,"");
+      var subtotal = ($(totalQty[i]).val()) * price;
+      if (subtotal != 0) {
+        $($('.item-cost')[i]).text("$" + subtotal);
+      } else {
+        $($('.item-cost')[i]).text("$0.00");
+      }
+    }
 }
